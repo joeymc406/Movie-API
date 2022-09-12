@@ -1,0 +1,109 @@
+!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      myFlix.
+    </title>
+    </head>
+
+  <body>
+
+    <header>
+
+    </header>
+
+    <div class="introduction">
+      <h1>
+        myFlix API
+      </h1>
+      <p>
+        This is a REST API for the application called myFlix that intereacts witha database used to story data about movies.
+        Users will be able to create a new user, make changes to their account such as add/remove username, change username,edit their favorite movies and also delete account. Users 
+        will be able to access data about movies. The data that can be accessed includes, Title, director, genre, description, genre data and information abou the director.
+        This api will be able to be used to access data using the get, post, delete and delete methods. this API is created using Node.js, javascript and express.
+      </p>
+    </div>
+
+      <div class="documentation-table">
+        <table class="table">
+          <tr>
+            <th>Business Logic</th>
+            <th>URL</th>
+            <th>HTTP Method</th>
+            <th>Request Body data format</th>
+            <th>Response Body data format</th>
+          </tr>
+          
+          <tr>
+            <td>Returns a list to the user of all movies in the list.</td>
+            <td>/movies</td>
+            <td>Get</td>
+            <td>None</td>
+            <td>A JSON Object of Data for each movie in the list.</td>
+          </tr>
+
+          <tr>
+            <td>Returns a list to the user of all movies by Title from the list.</td>
+            <td>/movies/:title</td>
+            <td>Get</td>
+            <td>None</td>
+            <td>A JSON Object of data for a movie in the list by Title including movie data.</td>
+          </tr>
+
+          <tr>
+            <td> Returns a list to the user of all the movies in a determined Genre.</td>
+            <td>/movies/genre/:genreName</td>
+            <td>Get</td>
+            <td>None</td>
+            <td>a JSON Object for a movie from the list by Genre.</td>
+          </tr>
+
+          <tr>
+            <td>Returns the data from a movie about the Director by name.</td>
+            <td>/movies/directors</td>
+            <td>Get</td>
+            <td>None</td>
+            <td>A JSON object for the data of a director by Name.</td>
+          </tr>
+
+          <tr>
+            <td>Creates a new user by means of registering.</td>
+            <td>/users</td>
+            <td>Post</td>
+            <td>a JSON obcest about the user to be registered.</td>
+            <td>a JSON object for data about a new user.</td>
+          </tr>
+
+          <tr>
+            <td>fFinds data by User Name and updates name.</td>
+            <td>/user/:id</td>
+            <td>Put</td>
+            <td>None</td>
+            <td>A JSON object for data about data changed by user </td>
+          </tr>
+
+          <tr>
+            <td>Finds data about user by name and changes favorite movie title.</td>
+            <td>/user/id/:moviesTitle</td>
+            <td>Put</td>
+            <td>None</td>
+            <td>A JSON Object for data about change to Favorite movies title by user.</td>
+          </tr>
+
+          <tr>
+            <td>Finds data about user by name and deletes/de registers.</td>
+            <td>/user/:id</td>
+            <td>Delete</td>
+            <td>None</td>
+            <td>A JSON object to be deleted by user found by user name</td>
+          </tr>
+        </table>
+      </div>
+
+  </body>
+
+</html>
+
