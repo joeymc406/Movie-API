@@ -206,7 +206,7 @@ app.post('/users', (req, res) => {
       if (newUser.name) {
             newUser.id = uuid.v4();
             newUser.favoriteMovie = [];
-            user.push(newUser);
+            user.push(newUsers);
             res.status(201).json(newUser);
       } else {
             res.status(400).send('User Name Required')
@@ -242,7 +242,7 @@ app.put('/user/:userId/movies/:favoriteMovie', (req, res) => {
             
             if (user) {
                   user.favoriteMovie = push(favoriteMovie)
-                  res.status(200).json(id)
+                  res.status(200).json(user)
             } else {
                         res.status(400).send('Movie Not Found')
                   }
