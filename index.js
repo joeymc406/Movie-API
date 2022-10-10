@@ -2,9 +2,8 @@ const express =  require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
-const req = require('express/lib/request');
 const app = express();
-const mongoose = requite('mongoose');
+const mongoose = require('mongoose');
 const Models = require('./models.js');
 
 const Movies = Models.Movie;
@@ -16,13 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
 }));
 
-mongoose.conect('mongodb://localhost:27017/myFlixDB',
+mongoose.connect('mongodb://localhost:27017/myFlixDB',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
 
 //json file for top 10 movies
 app.get('/movies', (req, res) => {
-      res.status(200).json(movies);
             Movies.find()
                   .then((movies) => {
                         res.status(201).json(movies);
@@ -38,8 +36,8 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:Title', (req, res) => {
       // find movie
      Movies.findOne({ Title: req.params.Title})
-            .then((movie) => {
-                  res.json(movie);
+            .then((movies) => {
+                  res.status(200).json(movies);
      })
      .catch((err) => {
             console.error(err);
@@ -89,17 +87,15 @@ app.post('/users', (req, res) => {
       Users.findOne({ Username: req.body.Username })
       .then((user) => {
             if(user) {
-                  return res.status(400).send(req.body.username + 'already exists');
+                  return res.status(400).send(req.body.Username + 'already exists');
             } else {
-                  Users
-                  .create({
+                  Users.create({
                         Username: req.body.Username,
                         Password: req.body.Password,
                         Email: req.body.Email,
-                        birthday: req.body.Birthday
+                        Birthday: req.body.Birthday
                   })
-                  .then((user) => {res.status(201).json(user)
-                  })
+                  .then((user) => {res.status(201).json(user)})
                   .catch((error) => {
                         console.error(error);
                         res.status(500).send('Error' + error);
@@ -109,7 +105,7 @@ app.post('/users', (req, res) => {
             .catch((error) => {
                   console.error(error);
                   res.status(500).send('Error' + error);
-            })
+            });
 });
 
 // user request and response all ^
@@ -125,23 +121,26 @@ app.post('/users', (req, res) => {
 }
 */
 app.put('/users/:Username', (req, res) => {
-      Users.findOneAndUpdate({Username: req.params.Username}, { $set:
+      Users.findOneAndUpdate(
+            {Username: req.params.Username },
             {
-                  Username: req.body.Username,
-                  Password: req.body.Password,
-                  Email: req.body.Email,
-                  Birthday: req.body.Birthday
+                  $set: {
+                        Username: req.body.Username,
+                        Password: req.body.Password,
+                        Email: req.body.Email,
+                        Birthday: req.body.Birthday,
+                  },
+            },
+            {new: true},
+            (err, updatedUser) => {
+                  if (err) {
+                        console.error(err);
+                        res.status(500).send('Error:' + err);
+                  } else {
+                        res.json(updatedUser);
+                  }
             }
-      },
-      {new: true}, //this line returns updated document
-      (err, updatedUser) => {
-            if(err) {
-                  console.error(err);
-                  res.status(500).send('Error' + err);
-            } else {
-                  res.json(updatedUser);
-            }
-      })
+      );
 });
 
 
@@ -164,7 +163,7 @@ app.post('/user/:Username/movies/:MovieID', (req, res) => {
 });
   
 
-app.delete('/user/:Username', (req, res) => {
+app.delete('/users/:Username', (req, res) => {
       Users.findOneAndRemove({ Username: req.params.Username })
       .then((user) => {
             if(!user) {
@@ -179,7 +178,7 @@ app.delete('/user/:Username', (req, res) => {
       });
 });
 
-app.delete('/user/:username/movies/:MovieID', (rez, res) => {
+app.delete('/users/:username/movies/:MovieID', (rez, res) => {
       Movies.findOneAndRemove({ FavoriteMovies: req.params.MovieId})
       .then((movie) => {
             if (!movie) {
@@ -196,7 +195,7 @@ app.delete('/user/:username/movies/:MovieID', (rez, res) => {
 
 app.use((err, req, res, next) => {
       console.error(err.stack);
-      res.status(500).send('something went wrong!')
+      res.status(500).send(' $omething went wrong!')
 });
 
 app.listen(8080, () => {
