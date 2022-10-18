@@ -15,12 +15,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
 }));
 
+let auth = require('./auth')(app);
+
+const passport = require('passport');
+require('./passport');
+
 mongoose.connect('mongodb://localhost:27017/myFlixDB',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
 
 //json file for top 10 movies
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => {
             Movies.find()
                   .then((movies) => {
                         res.status(201).json(movies);
