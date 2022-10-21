@@ -38,7 +38,7 @@ app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => 
 
 // request and response for top 10 movies in myFlix movies list. ^
 
-app.get('/movies/:Title', (req, res) => {
+app.get('/movies/:Title', passport.authenticate('jwt',{session: false}), (req, res) => {
       // find movie
      Movies.findOne({ Title: req.params.Title})
             .then((movies) => {
@@ -53,7 +53,7 @@ app.get('/movies/:Title', (req, res) => {
 
 //request and response for movie data by title. ^
 
-app.get('/movies/genre/:genreName', (req, res) => {
+app.get('/movies/genre/:genreName', passport.authenticate('jwt',{session: false}), (req, res) => {
       Movies.findOne({'Genre.Name': req.params.genreName})
             .then((movie) => {
                   res.json(movie.Genre);
@@ -66,7 +66,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
 
 //request and response for movies data by genre. ^
 
-app.get('/movies/director/:directorName', (req, res) => {
+app.get('/movies/director/:directorName', passport.authenticate('jwt',{session: false}), (req, res) => {
       Movies.findOne({'Director.Name': req.params.directorName})
             .then((movie) => {
                   res.json(movie.Director);
@@ -125,7 +125,7 @@ app.post('/users', (req, res) => {
       Birthday: Date
 }
 */
-app.put('/users/:Username', (req, res) => {
+app.put('/users/:Username', passport.authenticate('jwt',{session: false}), (req, res) => {
       console.log({ username: req.params.Username})
       Users.findOneAndUpdate(
             { Username: req.params.Username },
@@ -153,7 +153,7 @@ app.put('/users/:Username', (req, res) => {
 
 // request and response for updating username and find username by id.
 
-app.post('/users/:Username/movies/:MovieID', (req, res) => {
+app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt',{session: false}), passport.authenticate('jwt',{session: false}), (req, res) => {
      Users.findOneAndUpdate({ Username: req.params.Username}, {
             $push: { FavoriteMovies: req.params.MovieID }
             },
@@ -169,7 +169,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 });
   
 
-app.delete('/users/:Username', (req, res) => {
+app.delete('/users/:Username', passport.authenticate('jwt',{session: false}), (req, res) => {
       Users.findOneAndRemove({ Username: req.params.Username })
       .then((user) => {
             if(!user) {
@@ -184,7 +184,7 @@ app.delete('/users/:Username', (req, res) => {
       });
 });
 
-app.delete('/users/:username/movies/:MovieID', (rez, res) => {
+app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt',{session: false}), (rez, res) => {
       Movies.findOneAndRemove({FavoriteMovies: req.params.MovieID})
       .then((movie) => {
             if (!movie) {
