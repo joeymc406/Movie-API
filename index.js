@@ -64,7 +64,7 @@ app.get('/movies/genre/:genreName', passport.authenticate('jwt',{session: false}
             });
 });
 
-//request and response for movies data by genre. ^
+//request and response for genre data by genre. ^
 
 app.get('/movies/director/:directorName', passport.authenticate('jwt',{session: false}), (req, res) => {
       Movies.findOne({'Director.Name': req.params.directorName})
@@ -73,7 +73,7 @@ app.get('/movies/director/:directorName', passport.authenticate('jwt',{session: 
             })
             .catch((err) => {
                   console.error(err);
-                  req.status(500).send('Error' + err)
+                  res.status(500).send('Error' + err)
       });
 });
 
@@ -184,21 +184,21 @@ app.delete('/users/:Username', passport.authenticate('jwt',{session: false}), (r
       });
 });
 
-app.delete('/users/:username/movies/:MovieID', passport.authenticate('jwt',{session: false}), (rez, res) => {
-      Movies.findOneAndRemove({FavoriteMovies: req.params.MovieID})
+app.delete('/users/:username/movies/:MovieID', (rez, res) => {
+      Users.findOneAndUpdate({Username: req.params.Username})
       .then((movie) => {
-            if (!movie) {
-                  res.status(400).send(req.params.MovieID + 'not found');
+            $pull: {FavoriteMovies: req.params.MovieID}
+      },
+      {new: true},
+      (err, updatedUser) => {
+            if (err) {
+                  console.error(err);
+                  res.status(500).send('Error: ' + err);
             } else {
-                  res.status(200).send(req.params.MoveiID + 'was deleted')
+                  res.json(updatedUser);
             }
-      })
-      .catch((error) => {
-            console.error(error);
-            res.status(500).send('Error' + error)
-      });  
+      });
 });
-
 app.use((err, req, res, next) => {
       console.error(err.stack);
       res.status(500).send(' $omething went wrong!')
