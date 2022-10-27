@@ -5,6 +5,7 @@ const uuid = require('uuid');
 const app = express();
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const { check, validationResult } = require('express-calidator');
 
 const Movies = Models.Movie;
 const Users = Models.User
@@ -19,7 +20,7 @@ let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
 app.use (cors({
       origin: (origin, callback) => {
-            if(!origin) return;urn callback(null, true);
+            if(!origin) return callback(null, true);
             if(allowedOrigins.indexOf(origin) === -1){
                   //if a specific origin isn't found on the list of allowed origins
                   let message = 'The CORS policy for this application does not allow access from origin ' + origin;
@@ -102,7 +103,22 @@ Birthdate: Date
 }
 */
 
-app.post('/users', (req, res) => {
+app.post('/users', [
+ // validation logic here for request
+check('Username', 'Username is Required').isLength({min:8}),
+check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+check('Pssword', 'Password is required.').not().isEmpty(),
+check('Email', 'Email does not appear to be valid').isEmail()
+], (req, res) => {
+
+      // check validation for errors
+      let errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array()
+            });
+      }
+     
       let hashedPassword = users.hashPassword(req.body.Password);
       Users.findOne({ Username: req.body.Username })
       .then((user) => {
@@ -140,7 +156,23 @@ app.post('/users', (req, res) => {
       Birthday: Date
 }
 */
-app.put('/users/:Username', passport.authenticate('jwt',{session: false}), (req, res) => {
+app.put('/users/:Username',  [
+      // validation logic here for request
+     check('Username', 'Username is Required').isLength({min:8}),
+     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+     check('Pssword', 'Password is required.').not().isEmpty(),
+     check('Email', 'Email does not appear to be valid').isEmail()
+     ],
+ passport.authenticate('jwt',{session: false}), (req, res) => {
+      let errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array()
+            });
+      }
+
+      let hashedPassword = users.hashPassword(req.body.Password);
+
       console.log({ username: req.params.Username})
       Users.findOneAndUpdate(
             { Username: req.params.Username },
