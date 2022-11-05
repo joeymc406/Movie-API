@@ -5,7 +5,7 @@ const uuid = require('uuid');
 const app = express();
 const mongoose = require('mongoose');
 const Models = require('./models.js');
-const { check, validationResult } = require('express-calidator');
+const { check, validationResult } = require('express-validator');
 
 const Movies = Models.Movie;
 const Users = Models.User
@@ -119,7 +119,7 @@ check('Email', 'Email does not appear to be valid').isEmail()
             });
       }
      
-      let hashedPassword = users.hashPassword(req.body.Password);
+      let hashedPassword = Users.hashPassword(req.body.Password);
       Users.findOne({ Username: req.body.Username })
       .then((user) => {
             if(user) {
@@ -254,3 +254,8 @@ const port = process.env.Port || 8080;
 app.listen(port, '0.0.0.0', () => {
       console.log('Listening on port' + port);
 });
+
+
+//mongoimport --uri mongodb+srv://joeymc406:TaylorColson22@joeymc406.ewjao96.mongodb.net/myFLixDB --collection movies --type json --file /mongojsonexport/movies.json
+
+//mongoimport --uri mongodb+srv://joeymc406:TaylorColson22@joeymc406.ewjao96.mongodb.net/myFLixDB --collection users --type json --file /mongojsonexport/user.json
