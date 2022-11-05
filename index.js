@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true
 
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
+const cors = require('cors');
 app.use (cors({
       origin: (origin, callback) => {
             if(!origin) return callback(null, true);
@@ -107,7 +108,7 @@ app.post('/users', [
  // validation logic here for request
 check('Username', 'Username is Required').isLength({min:8}),
 check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-check('Pssword', 'Password is required.').not().isEmpty(),
+check('Password', 'Password is required.').not().isEmpty(),
 check('Email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
 
@@ -160,7 +161,7 @@ app.put('/users/:Username',  [
       // validation logic here for request
      check('Username', 'Username is Required').isLength({min:8}),
      check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-     check('Pssword', 'Password is required.').not().isEmpty(),
+     check('Password', 'Password is required.').not().isEmpty(),
      check('Email', 'Email does not appear to be valid').isEmail()
      ],
  passport.authenticate('jwt',{session: false}), (req, res) => {
@@ -171,7 +172,7 @@ app.put('/users/:Username',  [
             });
       }
 
-      let hashedPassword = users.hashPassword(req.body.Password);
+      let hashedPassword = Users.hashPassword(req.body.Password);
 
       console.log({ username: req.params.Username})
       Users.findOneAndUpdate(
