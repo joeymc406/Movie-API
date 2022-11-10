@@ -1,0 +1,171 @@
+[{
+  "_id": {
+    "$oid": "633cb11b78cdd4dd96d38587"
+  },
+  "Title": "8 Seconds",
+  "Description": "This movie chronicles the life of Lane Frost, 1987 PRCA Bullriding Wolrd Champion, his marriage and his frienships with Tuff Hedeman and Cody Lambert.",
+  "Genre": {
+    "Name": "Biography",
+    "Description": " a movie genre that has been around since the birth of cinema, biopics are a category all thir own. At their core, Biopics dramatize the real people and real events with varying degrees of versamultitude."
+  },
+  "Director": {
+    "Name": "John G. Avildson",
+    "Bio": "John G. Avildson was born devember 21 1935 in Oak Park, Illinoi. He was a director and editory for Rock(1976), the Karate Kid part 3 (1989), and rocky 5 (1990). he was married to Tracy Brooks Swope and Marie Olga Matrevich. He died June 16, 2017 in Los Angeles, California.",
+    "Birthyear": "1935"
+  },
+  "FilePath": "img/8seconds.png",
+  "Featured": "Unknown."
+},{
+  "_id": {
+    "$oid": "633cb12978cdd4dd96d38588"
+  },
+  "Title": "Beauty and the Beast",
+  "Description": "A selfish prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner",
+  "Genre": {
+    "Name": "Adventure",
+    "Description": "Movies in the adventure genre are defined by a hourney, often including some form of pursuit, and can take place in any setting."
+  },
+  "Director": {
+    "Name": "Bill Condon",
+    "Bio": "Bill Condon was born on october 22, 1955 in New York City, New York. He is a director and writer known for Dreamgirls (2006), Kinsey (2004) and Gods and Monsters (1998).",
+    "Birthyear": "1955"
+  },
+  "ImagePath": "img/beautyandthebeast.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb13d78cdd4dd96d38589"
+  },
+  "Title": "Harry Potter and the Prisoner of Azkaban",
+  "Description": "Harry Potter, ROn and hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.",
+  "Genre": {
+    "Name": "Adventure",
+    "Description": "Movies in the adventure genre are defined by a journey, often including some form of pursuit and can take place in any setting."
+  },
+  "Director": {
+    "Name": "Alfonso Cuaron",
+    "Bio": "Alfonso Cuaron was born on November 28th,1961 in Mexico City, Mexico. From an early age he yearned to be either a film director or astronaut. However he did not want to enter the army so he settled on directing.",
+    "Birthyear": "1961"
+  },
+  "ImagePath": "img/harrypotterandtheprisonerofazkaban.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb14c78cdd4dd96d3858a"
+  },
+  "Title": "John Wick",
+  "Description": "An ex-hitman comes out of retirement to track down the gansters that killed his dog and took everything from him.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Chad Stahelski",
+    "Bio": "Born on September 20th, 1968 coming from a martial arts background, he entered the film field as a stunt perfomer at the age of 24",
+    "Birthyear": "1968"
+  },
+  "ImagePath": "img/johnwick.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb15d78cdd4dd96d3858b"
+  },
+  "Title": "John Wick Chapter 2",
+  "Description": " After returnig to the criminal underworld to repay a debt, John Wick discovers that a large bounty has been put on his life.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Chad Stahelski",
+    "Bio": "Born on September 20th, 1968 coming from a martial arts background, he entered the film field as a stunt perfomer at the age of 24.",
+    "Birthyear": "1968"
+  },
+  "ImagePath": "img/johnwickchapter2.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb16978cdd4dd96d3858c"
+  },
+  "Title": "John Wick Chapter 3",
+  "Description": "John Wick is on the run after killing a member of the international assassins guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Chad Stahelski",
+    "Bio": "Born on September 20th, 1968 coming from a martial arts background, he entered the film field as a stunt perfomer at the age of 24.",
+    "Birthyear": "1968"
+  },
+  "ImagePath": "img/johnwickchapter3.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb17878cdd4dd96d3858d"
+  },
+  "Title": "John Wick Chapter 4",
+  "Description": "John Wick (Keanu Reeves) takes on his most lethal adversaries yet in the upcoming fourth installment of the series. With the price on his head ever increasing, Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Osaka to Berlin.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Chad Stahelski",
+    "Bio": "Born on September 20th, 1968 coming from a martial arts background, he entered the film field as a stunt perfomer at the age of 24.",
+    "Birthyear": "1968"
+  },
+  "Imagepath": "img/johnwickchapter4.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb18378cdd4dd96d3858e"
+  },
+  "Title": "Sicario",
+  "Description": "An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Denis Villaneuve",
+    "Bio": "Denis Villeneuve is a French Canadian film director and writer. He was born in 1967, in Trois-Rivières, Québec, Canada. He started his career as a filmmaker at the National Film Board of Canada. He is best known for his feature films Arrival (2016), Sicario (2015), Prisoners (2013), Enemy (2013), and Incendies (2010). He is married to Tanya Lapointe.",
+    "Birthyear": "1967"
+  },
+  "ImagePath": "1967",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb18e78cdd4dd96d3858f"
+  },
+  "Title": "Sicario: The Day of the Soldado",
+  "Description": "The drug war on the U.S.-Mexico border has escalated as the cartels have begun trafficking terrorists across the US border. To fight the war, federal agent Matt Graver re-teams with the mercurial Alejandro.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Stefano Sollima",
+    "Bio": "Stefano Sollima was born on May 4, 1966 in Rome, Lazio, Italy. He is a director and writer, known for Without Remorse (2021), ZeroZeroZero (2019) and Gomorrah (2014).",
+    "Birthyear": "1966"
+  },
+  "ImagePath": "img/sicariothedayofthesoldado.png",
+  "Featured": "Unknown"
+},{
+  "_id": {
+    "$oid": "633cb19778cdd4dd96d38590"
+  },
+  "Title": "American Sniper",
+  "Description": "Navy S.E.A.L. sniper Chris Kyles pinpoint accuracy saves countless lives on the battlefield and turns him into a legend. Back home with his family after four tours of duty, however, Chris finds that it is the war he cant leave behind.",
+  "Genre": {
+    "Name": "Action",
+    "Description": "Movies in the action genre are defined by risk and stakes. The bulk of the content myst be action oriented, including fight scenes, stunts, car chases and general danger."
+  },
+  "Director": {
+    "Name": "Clint Eastwood",
+    "Bio": "Clint Eastwood was born May 31, 1930 in San Francisco, the son of Clinton Eastwood Sr., a bond salesman and later manufacturing executive for Georgia-Pacific Corporation, and Ruth Wood (née Margret Ruth Runner), a housewife turned IBM clerk.",
+    "Birthyear": "1930"
+  },
+  "ImagePath": "img/americansniper.png",
+  "Featured": "Unknown"
+}]

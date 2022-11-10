@@ -1,3 +1,52 @@
-{"_id":{"$oid":"635ccbeaf4eb256a43973647"},"Username":"joeymc406","Password":"Test1","Email":"joeymc406@gmail.com","Birthday":{"$date":"1993-09-29T00:00:00Z"},"FavoriteMovie":{"_id":{"$oid":"633cb14c78cdd4dd96d3858a"}}}
-{"_id":{"$oid":"635ccc9ef4eb256a43973648"},"Username":"elizabethmc406","Password":"Test2","Email":"elizabethmc406@gmail.com","Birthday":{"$date":"1996-09-16T00:00:00Z"},"FavoriteMovie":{"_id":{"$oid":"633cb11b78cdd4dd96d38587"}}}
-{"_id":{"$oid":"635ccd7ff4eb256a43973649"},"Username":"taylormc406","Password":"Test3","Email":"taylormc406@gmail.com","Birthday":{"$date":"2018-03-02T00:00:00Z"},"FavoriteMovie":{"_id":{"$oid":"633cb12978cdd4dd96d38588"}}}
+[{
+  "_id": {
+    "$oid": "635ccbeaf4eb256a43973647"
+  },
+  "Username": "joeymc406",
+  "Password": "Test1",
+  "Email": "joeymc406@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "749260800000"
+    }
+  },
+  "FavoriteMovie": {
+    "_id": {
+      "$oid": "633cb14c78cdd4dd96d3858a"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ccc9ef4eb256a43973648"
+  },
+  "Username": "elizabethmc406",
+  "Password": "Test2",
+  "Email": "elizabethmc406@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "842832000000"
+    }
+  },
+  "FavoriteMovie": {
+    "_id": {
+      "$oid": "633cb11b78cdd4dd96d38587"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ccd7ff4eb256a43973649"
+  },
+  "Username": "taylormc406",
+  "Password": "Test3",
+  "Email": "taylormc406@gmail.com",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "1519948800000"
+    }
+  },
+  "FavoriteMovie": {
+    "_id": {
+      "$oid": "633cb12978cdd4dd96d38588"
+    }
+  }
+}]
