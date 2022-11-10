@@ -37,9 +37,22 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
-mongoose.connect('process.env.CONNECTION_URI',
+//mongoose.connect('mongodb://localhost:27017/myFlixDB',
+//{ useNewUrlParser: true, useUnifiedTopology: true
+//});
+
+//mongoose.connect('process.env.CONNECTION_URI',
+//{ useNewUrlParser: true, useUnifiedTopology: true
+//});
+
+mongoose.connect('mongodb+srv://joeymc406:joeymc406@myflixdb.1t6aklx.mongodb.net/myFlixDB?retryWrites=true&w=majority',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
+
+//mongoose.connect('',
+//{ useNewUrlParser: true, useUnifiedTopology: true
+//});
+
 
 //json file for top 10 movies
 app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => {
