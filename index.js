@@ -41,18 +41,13 @@ require('./passport');
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
 
-//mongoose.connect('process.env.CONNECTION_URI',
-//{ useNewUrlParser: true, useUnifiedTopology: true
-//});
-
-mongoose.connect('mongodb+srv://joeymc406:joeymc406@myFlixdb.1t6aklx.mongodb.net/myFLixDB?retryWrites=true&w=majority',
+mongoose.connect('process.env.CONNECTION_URI',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
 
-//mongoose.connect('',
+//mongoose.connect('mongodb+srv://joeymc406:joeymc406@myFlixdb.1t6aklx.mongodb.net/myFLixDB?retryWrites=true&w=majority',
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
-
 
 //json file for top 10 movies
 app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => {
