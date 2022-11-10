@@ -37,7 +37,7 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
-//mongoose.connect('mongodb://localhost:27017/myFlixDB',
+//mongoose.connect('mongodb://localhost:27017/myFLixDB',
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
 
@@ -45,7 +45,7 @@ require('./passport');
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
 
-mongoose.connect('mongodb+srv://joeymc406:joeymc406@myflixdb.1t6aklx.mongodb.net/myFlixDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://joeymc406:joeymc406@myFlixdb.1t6aklx.mongodb.net/myFLixDB?retryWrites=true&w=majority',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
 
