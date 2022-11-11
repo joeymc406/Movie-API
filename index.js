@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true
 }));
 
 let allowedOrigins = ['http://localhost:8080', 'https://joeymc406movie-api.herokuapp.com/'];
-//possible issue regarding origins!!!
+//possible issue regarding origins!!! added heroku url
 
 const cors = require('cors');
 app.use (cors({
@@ -44,6 +44,8 @@ require('./passport');
 mongoose.connect('process.env.CONNECTION_URI',
 { useNewUrlParser: true, useUnifiedTopology: true
 });
+
+//mongodb+srv://joeymc406:joeymc406@myflixdb.1t6aklx.mongodb.net/myFLixDB?retryWrites=true&w=majority
 
 //mongoose.connect('mongodb+srv://joeymc406:joeymc406@myFlixdb.1t6aklx.mongodb.net/myFLixDB?retryWrites=true&w=majority',
 //{ useNewUrlParser: true, useUnifiedTopology: true
