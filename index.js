@@ -123,6 +123,8 @@ check('Password', 'Password is required.').not().isEmpty(),
 check('Email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
 
+      console.log(req.body)
+      
       // check validation for errors
       let errors = validationResult(req);
 
@@ -137,6 +139,7 @@ check('Email', 'Email does not appear to be valid').isEmail()
             if(user) {
                   return res.status(400).send(req.body.Username + 'already exists');
             } else {
+
                   Users.create({
                         Username: req.body.Username,
                         Password: hashedPassword,
