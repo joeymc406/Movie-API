@@ -1,5 +1,3 @@
-const { serializeUser } = require('passport');
-
 const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     Models = require('./models.js'),
@@ -26,7 +24,7 @@ passport.use(new LocalStrategy({
             return callback(null, false, {message: 'Incorrect username or password.'});
         }
 
-        if (!serializeUser.validatePassword(password)) {
+        if (!user.validatePassword(password)) {
             console.log('incorrect Password');
             return callback(null, false, {message: 'Incorrect Password.'});
         }
