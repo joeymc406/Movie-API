@@ -51,6 +51,10 @@ mongoose.connect(process.env.CONNECTION_URI,
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
 
+app.get('/', (req, res) => {
+      res.send('Welcome to the movie database!');
+    });
+
 //json file for top 10 movies
 app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => {
             Movies.find()
@@ -124,7 +128,7 @@ check('Email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
 
       console.log(req.body)
-      
+
       // check validation for errors
       let errors = validationResult(req);
 
@@ -194,7 +198,7 @@ app.put('/users/:Username',  [
             {
                   $set: {
                         Username: req.body.Username,
-                        Password: req.body.Password,
+                        Password: hashedPassword,
                         Email: req.body.Email,
                         Birthday: req.body.Birthday,
                   }
