@@ -51,7 +51,6 @@ mongoose.connect(process.env.CONNECTION_URI,
 //{ useNewUrlParser: true, useUnifiedTopology: true
 //});
 
-
 //json file for top 10 movies
 app.get('/movies', passport.authenticate('jwt',{session: false}), (req, res) => {
             Movies.find()
@@ -175,7 +174,7 @@ check('Email', 'Email does not appear to be valid').isEmail()
 app.put('/users/:Username',  [
       // validation logic here for request
      check('Username', 'Username is Required').isLength({min:8}),
-     check('Username', 'Username required length 4 characters'.isLength({min:4})),
+     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
      check('Password', 'Password is required.').not().isEmpty(),
      check('Email', 'Email does not appear to be valid').isEmail()
      ],
