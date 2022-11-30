@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
 }));
 
-let allowedOrigins = ['http://localhost:8080', 'https://joeymc406movie-api.herokuapp.com/'];
+let allowedOrigins = ['http://localhost:8080', 'https://joeymc406movie-api.herokuapp.com/', 'http://localhost:1234'];
 //possible issue regarding origins!!! added heroku url
 
 const cors = require('cors');
