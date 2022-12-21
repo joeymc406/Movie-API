@@ -8,6 +8,7 @@ require('./passport');
 //local passport file
 
 let generateJWTToken = (user) => {
+    console.log(user)
     return jwt.sign(user, jwtSecret, {
         subject: user.Username,
         // this is the username encoded in the jwt
@@ -32,7 +33,7 @@ module.exports = (router) => {
                 if (error) {
                     res.send(error);
                 }
-                let token = generateJWTToken(user.toJSON());
+                let token = generateJWTToken({ _id: user._id, Username: user.Username });
                 return res.json({ user, token });
             });
         })(req, res);

@@ -31,14 +31,14 @@ passport.use(new LocalStrategy({
         
         console.log('finished');
         return callback(null, user);
-    });
+    }).populate("FavoriteMovies");
 }));
 
 passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: 'your_jwt_secret'
 }, (jwtPayload, callback) => {
-    return Users.findById(jwtPayload._id)
+    return Users.findById(jwtPayload._id).populate("FavoriteMovies")
     .then((user) => {
         return callback(null, user);
     })
