@@ -135,7 +135,9 @@ app.post(
   "/users",
   [
     // validation logic here for request
-    check("Username", "Username is Required").isLength({ min: 8 }).withMessage("Should be more than 8 characters"),
+    check("Username", "Username is Required").isLength({ min: 8 })
+    // withMessage is the message that will display if isLength fails
+    .withMessage("Should be more than 8 characters"),
     check(
       "Username",
       "Username contains non alphanumeric characters - not allowed."
@@ -183,6 +185,8 @@ app.get(
       "/users",
       passport.authenticate("jwt", { session: false }),
       (req, res) => {
+      //req.user gets added by passportjs after user is successfully logged. By using req.user it ensure the requester can only fetch their own data.
+      //populate here ensure ObjectID data stored in FavoriteMovies are also fetched
         Users.findById(req.user._id).populate('FavoriteMovies')
           .then((user) => {
             res.json({user});
@@ -229,6 +233,7 @@ app.put(
     let hashedPassword = Users.hashPassword(req.body.Password);
 
     Users.findByIdAndUpdate(
+      //req.user gets added by passportjs after user is successfully logged. By using req.user it ensure the requester can only update their own data.
      req.user._id,
       {
         $set: {
@@ -252,13 +257,13 @@ app.put(
 );
 
 // request and response for updating username and find username by id.
-
 app.post(
   "/users/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Users.findByIdAndUpdate(
-      req.user._id,
+      //req.user gets added by passportjs after user is successfully logged. By using req.user it ensure the requester can only delete their own data.
+      req.user._id, 
       {
         $push: { FavoriteMovies: req.params.MovieID },
       },
